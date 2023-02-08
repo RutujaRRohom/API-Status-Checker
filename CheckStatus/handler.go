@@ -15,7 +15,7 @@ func PostHandler(httpcheck WebsiteChecker) http.HandlerFunc {
 			json.NewDecoder(req.Body).Decode(&websiteMap)
 			websitelist := websiteMap["websites"]
 			for _, v := range websitelist {
-				Webmap[v] = Website{v, ""}
+				Webmap[v] = Website{v, "..."}
 			}
 			fmt.Println("post success")
 			w.WriteHeader(http.StatusOK)
@@ -26,7 +26,6 @@ func PostHandler(httpcheck WebsiteChecker) http.HandlerFunc {
 	})
 
 }
-
 
 func GetHandler(httpcheck WebsiteChecker) http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -45,14 +44,8 @@ func GetHandler(httpcheck WebsiteChecker) http.HandlerFunc {
 			}
 			json.NewEncoder(w).Encode(statusmap)
 
-			w.WriteHeader(http.StatusOK)
-			fmt.Println("get successful")
 		} else {
 			w.WriteHeader(http.StatusBadRequest)
 		}
 	})
-}
-
-func CreateStatus(context context.Context, web string) {
-	panic("unimplemented")
 }

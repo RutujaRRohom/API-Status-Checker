@@ -5,5 +5,4 @@ type Website struct {
 	Status string `json:"status"`
 }
 
-
 var Webmap = make(map[string]Website)
