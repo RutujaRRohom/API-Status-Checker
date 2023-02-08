@@ -17,8 +17,9 @@ func PostHandler(httpcheck WebsiteChecker) http.HandlerFunc {
 			for _, v := range websitelist {
 				Webmap[v] = Website{v, "..."}
 			}
-			fmt.Println("post success")
+			//fmt.Println("post success")
 			w.WriteHeader(http.StatusOK)
+			fmt.Println("post success")
 
 		} else {
 			w.WriteHeader(http.StatusMethodNotAllowed)
