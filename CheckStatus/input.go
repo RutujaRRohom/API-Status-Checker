@@ -1,8 +1,8 @@
 package CheckStatus
 
-type Website struct{
-	URL string `json:"url"`
-    Status string `json:"status"`
+type Website struct {
+	URL    string `json:"url"`
+	Status string `json:"status"`
 }
 
-var Webmap=make(map[string]Website)
+var Webmap = make(map[string]Website)
